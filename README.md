@@ -39,3 +39,15 @@ the local files and the ones in the dotfiles repo, and run the command again.
 ```
 error: The following untracked working tree files would be overwritten by checkout
 ```
+
+## Configuration
+
+`dfgr` reads [git config](https://git-scm.com/docs/git-config) from
+`~/.config/dfgr/config` in addition to the usual places. Some options that might
+make sense to set there:
+
+*   Running `dfgr clean` could do a lot more damage than `git clean`. One option
+    is to set
+    [`clean.requireForce`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-cleanrequireForce)
+    to `false` in `~/.config/git/config` and to `true` in
+    `~/.config/dfgr/config`. Then get in the habit of not using `-f` by default.
