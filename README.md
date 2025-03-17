@@ -18,3 +18,24 @@ great too.
 1.  Copy `dfgr` to `~/.local/bin/dfgr`, or link it from there.
 1.  If you want bash completion, copy `bash-completion/completions/dfgr` to
     `~/.local/share/bash-completion/completions/dfgr`, or link it from there.
+
+## Creating or cloning a repo
+
+```sh
+mkdir -p ~/.local/share/dfgr
+git --git-dir ~/.local/share/dfgr/dotfiles.git --work-tree ~ init
+```
+
+Then, if you are cloning an existing repo:
+
+```sh
+git --git-dir ~/.local/share/dfgr/dotfiles.git remote add -f origin <URL>
+git --git-dir ~/.local/share/dfgr/dotfiles.git switch main
+```
+
+If the `git-switch` command gives the error below, resolve the conflicts between
+the local files and the ones in the dotfiles repo, and run the command again.
+
+```
+error: The following untracked working tree files would be overwritten by checkout
+```
